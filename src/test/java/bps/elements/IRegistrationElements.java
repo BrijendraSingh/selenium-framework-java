@@ -12,5 +12,5 @@ public interface IRegistrationElements {
     By securityQuestion_dropDown = By.cssSelector("div.mat-select-value");
     By securityOptionsMaindenName_options = By.xpath("//span[@class='mat-option-text'][text()[contains(.,'maiden')]]");
     By securityAnswer_textBox = By.id("securityAnswerControl");
-    By register_btn = By.xpath("//span[@class='mat-button-wrapper'][text()=' Register ']");
+    By register_btn = By.id("registerButton");
 }

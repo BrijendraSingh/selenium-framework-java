@@ -10,7 +10,7 @@ public class Banner extends BaseAction implements IBannerElements {
         super(driver);
     }
 
-    public void dismissBanner(){
-        click(dismissBanner);
+    public boolean dismissBanner(){
+        return click(dismissBanner);
     }
 }

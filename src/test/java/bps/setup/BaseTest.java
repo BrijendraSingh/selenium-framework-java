@@ -3,9 +3,9 @@ package bps.setup;
 import com.github.javafaker.Faker;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.remote.ErrorCodes;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.springframework.stereotype.Component;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 
 import bps.actions.Banner;
 import bps.actions.Error;
@@ -13,10 +13,13 @@ import bps.actions.Registration;
 import bps.factory.BrowserFactory;
 import bps.factory.BrowserType;
 
+@Component
 public class BaseTest {
+
     public WebDriver driver;
     public Faker testData; 
-    @BeforeTest
+
+    @BeforeMethod
     public void setup(){
         driver = new BrowserFactory().getWebdriver(BrowserType.CHROME);
         testData= new Faker();
@@ -36,7 +39,7 @@ public class BaseTest {
         return new Banner(driver);
     }
 
-    @AfterTest
+    @AfterMethod
     public void tearDown(){
         driver.quit();
         System.out.println("Browser closed.. !!");

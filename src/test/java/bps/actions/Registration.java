@@ -1,23 +1,27 @@
 package bps.actions;
 
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
+
+import bps.builder.NewCustomer;
 import bps.elements.IRegistrationElements;
 
 public class Registration extends BaseAction implements IRegistrationElements {
 
-     public Registration(WebDriver driver){
+    boolean registrationBtnState; 
+    public Registration(WebDriver driver){
         super(driver);
      }
      
-     public Registration register(){
+     public Registration register(NewCustomer customer){
          click(newRegistration_link);
-         sendKeys(email_textBox, "laverna.dubuque@hotmail.com");
-         sendKeys(password_textBox, "uvygrjoa");
-         sendKeys(repeatPassword_textBox, "uvygrjoa");
+         sendKeys(email_textBox, customer.email);
+         sendKeys(password_textBox, customer.password);
+         sendKeys(repeatPassword_textBox, customer.repeatPassword);
          click(securityQuestion_dropDown);
          click(securityOptionsMaindenName_options);
-         sendKeys(securityAnswer_textBox, "lastName");
-         click(register_btn);
+         sendKeys(securityAnswer_textBox, customer.maidenName);
+         registrationBtnState=click(register_btn);
          return this;
      }
 
@@ -25,5 +29,10 @@ public class Registration extends BaseAction implements IRegistrationElements {
          click(account_link);
          click(login_link);
          return this;
+     }
+
+     public Registration checkRegistrationBtnState(boolean btnState){
+          Assert.assertEquals(btnState, registrationBtnState);
+          return this;  
      }
 }

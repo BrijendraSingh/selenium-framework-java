@@ -2,7 +2,7 @@
 <suite name="Making of selenium Framework" verbose="1">
     <test name="Build a fully fledged Selenium-java framework">
         <classes>
-            <class name="bps.BasicTest" />
+            <class name="bps.tests.RegistrationTest" />
         </classes>
     </test>
 </suite>

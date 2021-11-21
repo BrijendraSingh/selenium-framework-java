@@ -11,7 +11,11 @@ public class Error extends BaseAction implements IErrorElements {
         super(driver);
     }
 
-    public void validateError(String error ){
-        Assert.assertEquals(getText(error_msg), error);
+    public void validateUniqueUserError(String error_msg ){
+        Assert.assertEquals(getText(uniqueUserError_msg), error_msg);
+    }
+
+    public void validateUniqueRepeatPasswordError(String error_txt ){
+        Assert.assertEquals(getText(uniqueRepeatPasswordError).trim(), error_txt);
     }
 }

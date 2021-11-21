@@ -3,5 +3,6 @@ package bps.elements;
 import org.openqa.selenium.By;
 
 public interface IErrorElements {
-    By error_msg = By.className("error");
+    By uniqueUserError_msg = By.className("error");
+    By uniqueRepeatPasswordError = By.cssSelector("mat-error.mat-error");
 }
