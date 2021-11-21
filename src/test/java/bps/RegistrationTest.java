@@ -3,9 +3,6 @@ package bps;
 import org.testng.annotations.Test;
 import bps.setup.BaseTest;
 
-// email address: laverna.dubuque@hotmail.com
-// Password: uvygrjoa
-
 public class RegistrationTest extends BaseTest{
     private String error_msg = "Email must be unique";
     @Test
