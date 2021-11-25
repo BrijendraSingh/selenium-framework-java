@@ -3,17 +3,15 @@ package bps.setup;
 import com.github.javafaker.Faker;
 
 import org.openqa.selenium.WebDriver;
-import org.springframework.stereotype.Component;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import bps.actions.Banner;
-import bps.actions.Error;
+import bps.actions.ErrorHandeling;
 import bps.actions.Registration;
 import bps.factory.BrowserFactory;
 import bps.factory.BrowserType;
 
-@Component
 public class BaseTest {
 
     public WebDriver driver;
@@ -24,6 +22,7 @@ public class BaseTest {
         driver = new BrowserFactory().getWebdriver(BrowserType.CHROME);
         testData= new Faker();
         driver.get("http://localhost:3000/#/");
+        // driver.get("https://juice-shop.herokuapp.com/#/");
         driver.manage().window().fullscreen();
     }
 
@@ -31,8 +30,8 @@ public class BaseTest {
         return new Registration(driver);
     }
 
-    public Error error(){
-        return new Error(driver);
+    public ErrorHandeling error(){
+        return new ErrorHandeling(driver);
     }
 
     public Banner banner(){

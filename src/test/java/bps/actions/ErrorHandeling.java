@@ -5,9 +5,9 @@ import org.testng.Assert;
 
 import bps.elements.IErrorElements;
 
-public class Error extends BaseAction implements IErrorElements {
+public class ErrorHandeling extends BaseAction implements IErrorElements {
 
-    public Error(WebDriver driver) {
+    public ErrorHandeling(WebDriver driver) {
         super(driver);
     }
 
@@ -15,7 +15,7 @@ public class Error extends BaseAction implements IErrorElements {
         Assert.assertEquals(getText(uniqueUserError_msg), error_msg);
     }
 
-    public void validateUniqueRepeatPasswordError(String error_txt ){
-        Assert.assertEquals(getText(uniqueRepeatPasswordError).trim(), error_txt);
+    public void validateUniqueRepeatPasswordError(String error_msg ){
+        Assert.assertEquals(getText(uniqueRepeatPasswordError).trim(), error_msg);
     }
 }
