@@ -19,10 +19,10 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup(){
-        driver = new BrowserFactory().getWebdriver(BrowserType.CHROME);
+        driver = new BrowserFactory().getWebdriver(BrowserType.REMOTE);
         testData= new Faker();
-        driver.get("http://localhost:3000/#/");
-        // driver.get("https://juice-shop.herokuapp.com/#/");
+        // driver.get("http://127.0.0.1:3000/#/");
+        driver.get("https://juice-shop.herokuapp.com/#/");
         driver.manage().window().fullscreen();
     }
 

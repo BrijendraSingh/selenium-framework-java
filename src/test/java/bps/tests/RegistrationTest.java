@@ -24,6 +24,7 @@ public class RegistrationTest extends BaseTest{
         banner().dismissBanner();
         customerCan().openLoginScreen().register(newCustomer).checkRegistrationBtnState(true);
         error().validateUniqueUserError(UNIQUE_USER_ERROR);  
+        System.out.println("Excuted test 1");
     }   
 
     @Test
@@ -40,5 +41,6 @@ public class RegistrationTest extends BaseTest{
         banner().dismissBanner();
         customerCan().openLoginScreen().register(newCustomer).checkRegistrationBtnState(false);
         error().validateUniqueRepeatPasswordError(UNIQUE_PASSWORD_ERROR);  
+        System.out.println("Excuted test 2");
     } 
 }

@@ -4,7 +4,7 @@
 version: '2'
 services:
   chrome:
-    image: selenium/node-chrome:4.0.0
+    image: selenium/node-chrome:4.1.0-20211123
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -13,10 +13,10 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
-      - "6900:5900"
+      - "7900:7900"
 
   edge:
-    image: selenium/node-edge:4.0.0
+    image: selenium/node-edge:4.1.0-20211123
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -25,10 +25,10 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
-      - "6901:5900"
+      - "7901:7900"
 
   firefox:
-    image: selenium/node-firefox:4.0.0
+    image: selenium/node-firefox:4.1.0-20211123
     shm_size: 2gb
     depends_on:
       - selenium-hub
@@ -37,11 +37,16 @@ services:
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
     ports:
-      - "6902:5900"
+      - "7902:7900"
 
   selenium-hub:
-    image: selenium/hub:4.0.0
+    image: selenium/hub:4.1.0-20211123
     ports:
       - "4442:4442"
       - "4443:4443"
       - "4444:4444"
+
+  juice-shop:
+    image:  bkimminich/juice-shop
+    ports: 
+      - "3000:3000"   
