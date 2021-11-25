@@ -22,8 +22,8 @@ public class BaseTest {
     public void setup(){
         driver = new BrowserFactory().getWebdriver(Browser.getBrowserType(Config.getConfig("browser")));
         testData= new Faker();
-        // driver.get("http://127.0.0.1:3000/#/");
-        driver.get("https://juice-shop.herokuapp.com/#/");
+        System.out.println("get URL ==> " + Config.getEnvConfig("url"));
+        driver.get(Config.getEnvConfig("url"));
         driver.manage().window().fullscreen();
     }
 
