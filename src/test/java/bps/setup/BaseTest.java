@@ -9,17 +9,18 @@ import org.testng.annotations.BeforeMethod;
 import bps.actions.Banner;
 import bps.actions.ErrorHandeling;
 import bps.actions.Registration;
+import bps.configuration.Browser;
+import bps.configuration.Config;
 import bps.factory.BrowserFactory;
-import bps.factory.BrowserType;
 
 public class BaseTest {
 
     public WebDriver driver;
-    public Faker testData; 
+    public Faker testData;
 
     @BeforeMethod
     public void setup(){
-        driver = new BrowserFactory().getWebdriver(BrowserType.REMOTE);
+        driver = new BrowserFactory().getWebdriver(Browser.getBrowserType(Config.getConfig("browser")));
         testData= new Faker();
         // driver.get("http://127.0.0.1:3000/#/");
         driver.get("https://juice-shop.herokuapp.com/#/");
